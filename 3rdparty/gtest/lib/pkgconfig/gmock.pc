@@ -1,0 +1,9 @@
+libdir=/Users/milittle/3rdparty/lib
+includedir=/Users/milittle/3rdparty/include
+
+Name: gmock
+Description: GoogleMock (without main() function)
+Version: 1.9.0
+URL: https://github.com/google/googletest
+Libs: -L${libdir} -lgmock 
+Cflags: -I${includedir} -DGTEST_HAS_PTHREAD=1 
