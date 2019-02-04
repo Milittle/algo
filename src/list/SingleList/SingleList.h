@@ -35,7 +35,16 @@ namespace algo{
         SingleNode<T> * get_head(){return head_;}
 
         void release();
-        size_t size(){return size_;}
+
+        size_t size(){
+            return size_;
+        }
+        void operator++(){
+            size_++;
+        }
+        void operator--(){
+            size_--;
+        }
 
         void reverse();
 
@@ -146,18 +155,21 @@ namespace algo{
     template <typename T>
     void SingleList<T>::reverse() {
 
-        SingleNode<T> * node = head_;
-        SingleNode<T> * node_next = head_->next;
+        if ( !head_ || size_ == 1)
+            return;
+
+        SingleNode<T> * pre = head_;
+        SingleNode<T> * cur = head_->next;
         head_->next = nullptr;
         SingleNode<T> * tmp;
-        while(node_next){
-            tmp = node_next->next;
-            node_next->next = node;
-            node = node_next;
-            node_next = tmp;
+        while(cur){
+            tmp = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = tmp;
         }
 
-        head_ = node;
+        head_ = pre;
     }
 
 }// namespace algo

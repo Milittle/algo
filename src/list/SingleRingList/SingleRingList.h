@@ -87,18 +87,21 @@ namespace algo{
     template <typename T>
     void SingleRingList<T>::reverse() {
 
-        SingleNode<T> * node = head_;
-        SingleNode<T> * node_next = head_->next;
+        if(!head_ || size_ == 1)
+            return;
+
+        SingleNode<T> * pre = head_;
+        SingleNode<T> * cur = head_->next;
         SingleNode<T> * tmp;
-        while(node_next != head_){
-            tmp = node_next->next;
-            node_next->next = node;
-            node = node_next;
-            node_next = tmp;
+        while(cur != head_){
+            tmp = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = tmp;
         }
 
-        node_next->next = node;
-        head_ = node_next;
+        cur->next = pre;
+        head_ = cur;
     }
 
 } // namespace algo

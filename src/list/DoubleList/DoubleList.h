@@ -42,6 +42,14 @@ namespace algo{
             return size_;
         }
 
+        void operator++(){
+            size_++;
+        }
+
+        void operator--(){
+            size_--;
+        }
+
     private:
         DoubleNode<value_type> * head_;
         DoubleNode<value_type> * tail_;
@@ -180,6 +188,10 @@ namespace algo{
 
     template <typename T>
     void DoubleList<T>::reverse(){
+
+        if (!head_ || !tail_){
+            return;
+        }
         DoubleNode<T> * node = head_;
         head_ = tail_;
         tail_ = node;
