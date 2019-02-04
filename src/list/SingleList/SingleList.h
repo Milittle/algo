@@ -20,6 +20,7 @@ namespace algo{
     template <typename T>
     class SingleList{
     public:
+        typedef T value_type;
         SingleList():head_(nullptr), size_(0){}
         ~SingleList(){release();}
 

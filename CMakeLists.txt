@@ -16,10 +16,11 @@ add_library(DoubleList SHARED src/list/DoubleList/DoubleList.cpp)
 add_library(SingleRingList SHARED src/list/SingleRingList/SingleRingList.cpp)
 add_library(Joseph SHARED src/list/JosephP.cpp)
 add_library(sample1 src/sample/sample1.cpp)
+add_library(listSample src/list/listSample.cpp)
 
 # the sample1unittest library
 add_library(sample1unittest src/test/sample/sample1unittest.cpp)
 
 add_executable(algo src/main.cpp)
 
-target_link_libraries(algo SingleList DoubleList SingleRingList gtest sample1 sample1unittest)
+target_link_libraries(algo SingleList DoubleList SingleRingList gtest sample1 sample1unittest listSample)
