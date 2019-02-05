@@ -32,7 +32,7 @@ namespace {
         algo::SingleNode<algo::SingleList<int>::value_type> * fast = list->get_head();
         algo::SingleNode<algo::SingleList<int>::value_type> * slow = list->get_head();
 
-        while(slow && fast){
+        while(fast && fast->next){
             fast = fast->next->next;
             slow = slow->next;
 
@@ -99,16 +99,11 @@ namespace {
 
     //get the list mid node
     algo::SingleNode<int> * get_mid_node(algo::SingleList<int> * list){
-        if (!list->get_head())
-            return nullptr;
-
-        if (list->size() == 1)
-            return list->get_head();
 
         algo::SingleNode<int> * fast = list->get_head();
         algo::SingleNode<int> * slow = list->get_head();
 
-        while (fast->next && slow->next){
+        while (fast && fast->next){ // fast ptr ans slow ptr condition
             fast = fast->next->next;
             slow = slow->next;
         }
