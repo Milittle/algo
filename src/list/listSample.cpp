@@ -97,17 +97,18 @@ namespace {
         }
     }
 
-    //get the list mid node
+    // get the list mid node
+    // odd number, return the mid node
+    // even number, return the last one
     algo::SingleNode<int> * get_mid_node(algo::SingleList<int> * list){
 
         algo::SingleNode<int> * fast = list->get_head();
         algo::SingleNode<int> * slow = list->get_head();
 
-        while (fast && fast->next){ // fast ptr ans slow ptr condition
+        while (fast && fast->next) { // fast ptr ans slow ptr condition
             fast = fast->next->next;
             slow = slow->next;
         }
-
         return slow;
     }
 }
