@@ -26,6 +26,10 @@ namespace algo{
         size_t push(value_type value); // no limitation
         value_type pop();
 
+        size_t size(){
+            return size_;
+        }
+
     private:
         ListNode<value_type> * head_;
         size_t size_;

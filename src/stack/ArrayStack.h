@@ -24,6 +24,10 @@ namespace algo{
 
         size_t push(value_type value);
         value_type pop();
+
+        size_t size(){
+            return count;
+        }
     private:
         value_type * val;
         size_t count; //the element count
