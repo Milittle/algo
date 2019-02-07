@@ -20,6 +20,8 @@ add_library(listSample src/list/listSample.cpp)
 add_library(arrayStack src/stack/ArrayStack.cpp)
 add_library(listStack src/stack/ListStack.cpp)
 add_library(forward_backward_based_stack src/stack/forward_backward_based_stack.cpp)
+add_library(arrayQueue src/queue/ArrayQueue.cpp)
+add_library(blockQueue src/queue/BlockQueue.cpp)
 
 # the sample1unittest library
 add_library(sample1unittest src/test/sample/sample1unittest.cpp)
@@ -28,4 +30,5 @@ add_executable(algo src/main.cpp)
 
 target_link_libraries(algo
         SingleList DoubleList SingleRingList gtest sample1 sample1unittest listSample
-        arrayStack listStack forward_backward_based_stack)
+        arrayStack listStack forward_backward_based_stack
+        arrayQueue blockQueue)
