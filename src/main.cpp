@@ -9,6 +9,7 @@
 #include "stack/ArrayStack.h"
 #include "queue/ArrayQueue.h"
 #include "sort/Sort.h"
+#include "bsearch/bsearch.h"
 
 int main(int argc, char ** argv) {
 
