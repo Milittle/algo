@@ -6,15 +6,16 @@
 namespace {
 
     // list reverse
-    void listReverse(algo::SingleList<int> * list){
-        algo::SingleNode<int> * head = list->get_head();
+    template <typename T>
+    algo::SingleList<T> listReverse(algo::SingleList<T> * list){
+        algo::SingleNode<T> * head = list->get_head();
 
         if (!head || list->size() == 1)
-            return;
+            return head;
 
-        algo::SingleNode<int> * pre = head;
-        algo::SingleNode<int> * cur = head->next;
-        algo::SingleNode<int> * tmp;
+        algo::SingleNode<T> * pre = head;
+        algo::SingleNode<T> * cur = head->next;
+        algo::SingleNode<T> * tmp;
         head->next = nullptr;
 
         while(cur){
@@ -25,6 +26,8 @@ namespace {
         }
 
         head = pre;
+        
+        return head;
     }
 
     // check the list have not Ring.
