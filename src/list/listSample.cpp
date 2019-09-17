@@ -7,7 +7,7 @@ namespace {
 
     // list reverse
     template <typename T>
-    algo::SingleList<T> listReverse(algo::SingleList<T> * list){
+    algo::SingleNode<T> * listReverse(algo::SingleList<T> * list){
         algo::SingleNode<T> * head = list->get_head();
 
         if (!head || list->size() == 1)

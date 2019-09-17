@@ -148,6 +148,39 @@ namespace algo{
 
             return i;
         }
+
+        static void heap_adjust(std::vector<int> & nums, int size, int k){
+            int tmp = nums[k];
+            int i = 2 * k + 1;
+            while(i < size) {
+                if (i + 1 < size && nums[i] > nums[i + 1]) {
+                    ++i;
+                }
+
+                if (tmp < nums[i])
+                    break;
+
+                nums[k] = nums[i];
+                k = i;
+                i = 2 * k + 1;
+            }
+            nums[k] = tmp;
+        }
+
+        static void heap_sort(std::vector<int> & nums){
+            int size = nums.size();
+
+            if (size <= 1) return;
+
+            for (int i = size / 2 - 1; i >= 0; --i){
+                heap_adjust(nums, size, i);
+            }
+
+            for (int i = size - 1; i >= 0; --i){
+                std::swap(nums[0], nums[i]);
+                heap_adjust(nums, i, 0);
+            }
+        }
     };
  } //namespace algo
 
